@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DNAスロット</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:grid;
+      place-items:center;
+      background:#111;
+      color:#fff;
+      font-family: system-ui, sans-serif;
+    }
+    .wrap{
+      width:min(520px, 92vw);
+      display:grid;
+      gap:14px;
+      place-items:center;
+    }
+    .slot{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+      width:100%;
+    }
+    .cell{
+      height:140px;
+      background:#000;
+      border:2px solid #444;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-size:64px;
+      font-weight:800;
+      letter-spacing: 2px;
+      user-select:none;
+    }
+    .btnrow{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+      width:100%;
+    }
+    button{
+      padding:12px 10px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:700;
+    }
+    button:disabled{
+      opacity:0.45;
+      cursor:not-allowed;
+    }
+    .controls{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .msg{
+      min-height:1.4em;
+      color:#ffd54a;
+      font-weight:700;
+    }
+    .small{ color:#bbb; font-size:12px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2 style="margin:0;">DNAスロット（A / T / G / C）</h2>
+
+    <div class="slot">
+      <div class="cell" id="cell0">A</div>
+      <div class="cell" id="cell1">T</div>
+      <div class="cell" id="cell2">G</div>
+    </div>
+
+    <div class="btnrow">
+      <button id="stop0">STOP 1</button>
+      <button id="stop1">STOP 2</button>
+      <button id="stop2">STOP 3</button>
+    </div>
+
+    <div class="controls">
+      <button id="start">START（全部回す）</button>
+      <button id="reset">RESET</button>
+    </div>
+
+    <div class="msg" id="msg"></div>
+    <div class="small">3つ全部止めると結果が出るよ（同じ文字が揃ったら当たりなど自由にルール追加できる）</div>
+  </div>
+
+  <script src="slot.js"></script>
+</body>
+</html>
